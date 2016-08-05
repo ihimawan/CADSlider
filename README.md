@@ -1,3 +1,6 @@
 # CADSlider
 
-![alt tag](https://raw.githubusercontent.com/ihimawan/CADSlider/branch/path/to/CAD1Screenshot.png)
+<p align="center">
+  <img src="CAD1Screenshot.png" width="350"/>
+  <img src="CAD2Screenshot.png" width="350"/>
+</p>
