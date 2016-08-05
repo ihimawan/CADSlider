@@ -1,0 +1,103 @@
+<!-- 
+Name: Indri Himawan
+Completed on March 25th, 2016
+CS 4395 - Project 2 (cad1.html)
+-->
+
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+varying vec4 fColor;
+
+void main()
+{
+    gl_Position = vPosition;
+    fColor = vColor;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+void main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="cad1.js"></script>
+
+<style>
+#divpreview {
+	border:1px solid #e3e3e3;
+	width:180px;
+	height:50px;
+	margin-bottom:15px;
+}
+
+#rateValue1, #rateValue2, #rateValue3{
+	width:25px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function changeColor() {
+	var div = document.getElementById("divpreview");
+	var red = parseInt(document.getElementById('redValue').value);
+	var green = parseInt(document.getElementById('greenValue').value);
+	var blue = parseInt(document.getElementById('blueValue').value);
+	var button = document.getElementById("selectButton");
+	var result = "#" + ("00" + red.toString(16)).slice(-2) + ("00" + green.toString(16)).slice(-2) + ("00" + blue.toString(16)).slice(-2);
+// 	alert(result);
+  	div.style.backgroundColor=result;
+	document.getElementById('colorHex').innerHTML = result.toUpperCase();
+}
+
+</script>
+
+<body>
+<div>
+<canvas id="gl-canvas" width="512"" height="512"
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</div>
+
+<div>
+	<p><strong>Select Your Color Using the RGB Slider.</strong></p>
+</div>
+
+<div id="divpreview">
+	<p id="colorHex" align="center">#FFFFFF</p>
+</div>
+
+<div>
+
+	<label for="red">R: </label>
+	<input id="redValue" type="range" min="0" max="255" value="255" Step="1" onchange="javascript:document.getElementById('rateValue1').value = document.getElementById('redValue').value; changeColor();">
+	<input id="rateValue1" type="text" size="2" value="255"/>   
+	<br>
+ 	<label for="green">G: </label>
+	<input id="greenValue" type="range" min="0" max="255" value="255" Step="1" onchange="javascript:document.getElementById('rateValue2').value = document.getElementById('greenValue').value; changeColor();">
+	<input id="rateValue2" type="text" size="2" value="255"/>  
+	<br>
+ 	<label for="blue">B: </label>
+	<input id="blueValue" type="range" min="0" max="255" value="255" Step="1" onchange="javascript:document.getElementById('rateValue3').value = document.getElementById('blueValue').value; changeColor();">
+	<input id="rateValue3" type="text" size="2" value="255"/>  
+
+</div>
+
+
+
+
+</body>
+</html>
